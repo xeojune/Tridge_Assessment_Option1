@@ -27,7 +27,7 @@ export function useInfiniteScroll<T>({
     try {
       setLoading(true);
       const response = await fetchData(page);
-      setData(prev => [...prev, ...response.items]);
+      setData(prev => page === 0 ? response.items : [...prev, ...response.items]);
       setHasMore(response.hasMore);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred while fetching data');
