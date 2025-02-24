@@ -23,7 +23,7 @@ export function useInfiniteScroll<T>({
   
   const observer = useRef<IntersectionObserver | null>(null);
 
-  const loadMore = async () => {
+  const loadMore = async () => { 
     try {
       setLoading(true);
       const response = await fetchData(page);
